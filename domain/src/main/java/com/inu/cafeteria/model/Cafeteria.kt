@@ -21,6 +21,7 @@ import io.realm.annotations.PrimaryKey
 open class Cafeteria : RealmObject() {
     /**
      * Identifier of the cafeteria.
+     * Should be non-zero.
      */
     @PrimaryKey
     val id: Int = 0
@@ -29,6 +30,12 @@ open class Cafeteria : RealmObject() {
      * Name of the cafeteria.
      */
     val name: String = ""
+
+    /**
+     * Order of the cafeteria.
+     * Should be non-zero (starts from 1).
+     */
+    val order: Int = 0
 
     /**
      * Path of header image of the cafeteria.

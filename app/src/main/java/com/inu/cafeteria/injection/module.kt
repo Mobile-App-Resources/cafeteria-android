@@ -111,7 +111,7 @@ val myModules = module {
 
     /** Get Cafeteria */
     single {
-        GetCafeteria(
+        GetCafeterias(
             cafeteriaRepo = get()
         )
     }

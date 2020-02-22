@@ -15,7 +15,7 @@ import com.inu.cafeteria.model.scheme.Cafeteria
 import com.inu.cafeteria.repository.CafeteriaRepository
 import com.inu.cafeteria.repository.Repository
 
-class GetCafeteria(
+class GetCafeterias(
     private val cafeteriaRepo: CafeteriaRepository
 ) : UseCase<Unit, List<Cafeteria>>() {
 

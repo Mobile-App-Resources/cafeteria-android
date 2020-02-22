@@ -17,6 +17,7 @@ import com.inu.cafeteria.extension.onResult
 import com.inu.cafeteria.model.Cache
 import com.inu.cafeteria.model.FoodMenu
 import com.inu.cafeteria.model.scheme.Cafeteria
+import com.inu.cafeteria.model.scheme.Corner
 import com.inu.cafeteria.parser.CafeteriaParser
 import com.inu.cafeteria.parser.FoodMenuParser
 import com.inu.cafeteria.service.CafeteriaNetworkService
@@ -59,6 +60,13 @@ class CafeteriaRepositoryImpl(
             },
             onFail = callback.onFail
         )
+    }
+
+    override fun getAllCorners(callback: DataCallback<List<Corner>>) {
+
+
+
+
     }
 
     override fun getAllFoodMenu(callback: DataCallback<List<FoodMenu>>) {
