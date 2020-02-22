@@ -28,7 +28,7 @@ import com.inu.cafeteria.feature.info.InfoActivity
 import com.inu.cafeteria.feature.login.LoginActivity
 import com.inu.cafeteria.feature.main.MainActivity
 import com.inu.cafeteria.feature.splash.SplashActivity
-import com.inu.cafeteria.model.json.Cafeteria
+import com.inu.cafeteria.model.scheme.Cafeteria
 import org.koin.core.KoinComponent
 import timber.log.Timber
 import kotlin.system.exitProcess

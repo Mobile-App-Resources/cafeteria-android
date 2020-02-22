@@ -11,6 +11,7 @@ package com.inu.cafeteria.common
 
 import android.app.Application
 import com.inu.cafeteria.injection.myModules
+import io.realm.Realm
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -25,5 +26,7 @@ class ThisApplication : Application() {
             androidContext(this@ThisApplication)
             modules(myModules)
         }
+
+        Realm.init(this)
     }
 }

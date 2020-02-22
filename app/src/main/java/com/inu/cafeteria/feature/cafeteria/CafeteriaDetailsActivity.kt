@@ -15,7 +15,7 @@ import android.os.Bundle
 import android.view.MotionEvent
 import androidx.fragment.app.Fragment
 import com.inu.cafeteria.common.base.SingleFragmentActivity
-import com.inu.cafeteria.model.json.Cafeteria
+import com.inu.cafeteria.model.scheme.Cafeteria
 
 class CafeteriaDetailsActivity : SingleFragmentActivity() {
     // Handle swipe gesture.

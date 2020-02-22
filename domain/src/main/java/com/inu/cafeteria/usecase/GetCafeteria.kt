@@ -11,7 +11,7 @@ package com.inu.cafeteria.usecase
 
 import com.inu.cafeteria.functional.Result
 import com.inu.cafeteria.interactor.UseCase
-import com.inu.cafeteria.model.json.Cafeteria
+import com.inu.cafeteria.model.scheme.Cafeteria
 import com.inu.cafeteria.repository.CafeteriaRepository
 import com.inu.cafeteria.repository.Repository
 

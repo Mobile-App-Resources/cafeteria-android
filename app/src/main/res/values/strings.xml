@@ -70,5 +70,6 @@
     <string name="menu_login">Sign in</string>
     <string name="button_confirm">Confirm</string>
     <string name="desc_dont_show_again">Don\'t show again</string>
+    <string name="desc_cafeteria_subtitle">Information about this cafeteria</string>
 
 </resources>

@@ -20,7 +20,7 @@ import com.inu.cafeteria.common.extension.*
 import com.inu.cafeteria.databinding.CafeteriaDetailsFragmentBinding
 import com.inu.cafeteria.extension.onNull
 import com.inu.cafeteria.model.FoodMenu
-import com.inu.cafeteria.model.json.Cafeteria
+import com.inu.cafeteria.model.scheme.Cafeteria
 import com.inu.cafeteria.repository.PrivateRepository
 import kotlinx.android.synthetic.main.cafeteria_details_fragment.*
 import kotlinx.android.synthetic.main.cafeteria_details_fragment.view.*

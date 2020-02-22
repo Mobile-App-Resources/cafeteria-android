@@ -17,6 +17,7 @@ import androidx.annotation.DrawableRes
 import androidx.fragment.app.FragmentActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomViewTarget
 import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
@@ -36,9 +37,9 @@ fun ImageView.loadUrlAndResumeEnterTransition(url: String, activity: FragmentAct
 
     Glide.with(context.applicationContext)
         .load(url)
+        .apply(RequestOptions.circleCropTransform())
         .fallback(R.drawable.no_img)
         .error(R.drawable.no_img)
-        .transition(DrawableTransitionOptions.withCrossFade())
         .into(target)
 }
 

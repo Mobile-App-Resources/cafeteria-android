@@ -11,6 +11,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 28
@@ -81,4 +83,7 @@ dependencies {
 
     /** Glide */
     implementation "com.github.bumptech.glide:glide:$glide_version"
+
+    /** CircleImageView */
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 }

@@ -10,7 +10,7 @@
 package com.inu.cafeteria.repository
 
 import com.inu.cafeteria.model.FoodMenu
-import com.inu.cafeteria.model.json.Cafeteria
+import com.inu.cafeteria.model.scheme.Cafeteria
 
 /**
  * This repository use callback model.

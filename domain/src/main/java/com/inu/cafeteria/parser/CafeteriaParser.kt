@@ -12,7 +12,7 @@ package com.inu.cafeteria.parser
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.inu.cafeteria.extension.tryOrNull
-import com.inu.cafeteria.model.json.Cafeteria
+import com.inu.cafeteria.model.scheme.Cafeteria
 import com.inu.cafeteria.util.Types
 
 class CafeteriaParser : Parser<JsonElement, List<Cafeteria>>() {

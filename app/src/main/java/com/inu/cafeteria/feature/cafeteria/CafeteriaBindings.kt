@@ -12,7 +12,7 @@ package com.inu.cafeteria.feature.cafeteria
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.inu.cafeteria.model.FoodMenu
-import com.inu.cafeteria.model.json.Cafeteria
+import com.inu.cafeteria.model.scheme.Cafeteria
 import timber.log.Timber
 
 @BindingAdapter("cafeteria")

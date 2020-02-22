@@ -9,12 +9,13 @@
 
 package com.inu.cafeteria.feature.main
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
+import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.inu.cafeteria.R
 import com.inu.cafeteria.common.base.SingleFragmentActivity
@@ -28,6 +29,7 @@ import com.inu.cafeteria.repository.LoginRepository
 import kotlinx.android.synthetic.main.main_activity.*
 import kotlinx.android.synthetic.main.toolbar.*
 import org.koin.android.ext.android.inject
+
 
 /**
  * Manage student data here.
@@ -116,6 +118,7 @@ class MainActivity : SingleFragmentActivity() {
         menu.findItem(R.id.menu_logout)?.isVisible = loginRepo.isLoggedIn()
         menu.findItem(R.id.menu_login)?.isVisible = loginRepo.isLoggedIn().not()
     }
+
 
     companion object {
         fun callingIntent(context: Context) = Intent(context, MainActivity::class.java)

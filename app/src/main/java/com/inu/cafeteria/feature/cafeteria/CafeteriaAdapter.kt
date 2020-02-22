@@ -17,7 +17,7 @@ import com.inu.cafeteria.common.base.BaseViewHolder
 import com.inu.cafeteria.common.extension.addUrl
 import com.inu.cafeteria.common.extension.inflate
 import com.inu.cafeteria.common.extension.loadFromUrl
-import com.inu.cafeteria.model.json.Cafeteria
+import com.inu.cafeteria.model.scheme.Cafeteria
 import com.inu.cafeteria.repository.PrivateRepository
 import kotlinx.android.synthetic.main.cafeteria_list_item.view.*
 import org.koin.core.inject
@@ -46,7 +46,7 @@ class CafeteriaAdapter : BaseAdapter<Cafeteria>() {
 
         // Use background image.
         with(view.cafeteria_image) {
-            loadFromUrl(privateRepo.getServerBaseUrl().addUrl(item.backgroundImagePath))
+            loadFromUrl(privateRepo.getServerBaseUrl().addUrl(item.imagePath))
         }
 
         with(view.cafeteria_title) {

@@ -17,7 +17,7 @@
     <!-- Google's official status bar height. -->
 
     <!-- Toolbar height including status bar. -->
-    <dimen name="toolbarHeight">80dp</dimen>
+    <dimen name="toolbarHeight">56dp</dimen>
 
     <!-- Expanded height of a collapsing toolbar -->
     <dimen name="expandedToolbarHeight">240dp</dimen>

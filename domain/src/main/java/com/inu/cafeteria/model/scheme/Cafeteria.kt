@@ -7,7 +7,7 @@
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
 
-package com.inu.cafeteria.model.json
+package com.inu.cafeteria.model.scheme
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
