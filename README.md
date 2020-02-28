@@ -1,4 +1,4 @@
-# INU_CafeTeria_android
+# INU 카페테리아 안드로이드
 
  > 인천대학교 식단 정보 애플리케이션 INU Cafeteria (Android)
 
