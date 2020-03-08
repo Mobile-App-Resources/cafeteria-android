@@ -7,15 +7,12 @@
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
 
-package com.inu.cafeteria.feature.main
+package com.inu.cafeteria.feature.feed
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.*
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.inu.cafeteria.R
 import com.inu.cafeteria.common.base.SingleFragmentActivity

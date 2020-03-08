@@ -7,7 +7,7 @@
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
 
-package com.inu.cafeteria.feature.main
+package com.inu.cafeteria.feature.feed
 
 import com.inu.cafeteria.common.Navigator
 import com.inu.cafeteria.common.base.BaseActivity

@@ -26,7 +26,7 @@ import com.inu.cafeteria.feature.barcode.BarcodeActivity
 import com.inu.cafeteria.feature.cafeteria.CafeteriaDetailsActivity
 import com.inu.cafeteria.feature.info.InfoActivity
 import com.inu.cafeteria.feature.login.LoginActivity
-import com.inu.cafeteria.feature.main.MainActivity
+import com.inu.cafeteria.feature.feed.MainActivity
 import com.inu.cafeteria.feature.splash.SplashActivity
 import com.inu.cafeteria.model.scheme.Cafeteria
 import org.koin.core.KoinComponent
