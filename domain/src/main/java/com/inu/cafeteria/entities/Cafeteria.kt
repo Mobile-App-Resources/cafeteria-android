@@ -16,8 +16,5 @@ class Cafeteria  (
 
     val supportMenu: Boolean = false,
     val supportDiscount: Boolean = false,
-    val supportNotification: Boolean = false,
-
-
-    val order: Int = 0
+    val supportNotification: Boolean = false
 )

@@ -17,10 +17,9 @@ import java.util.*
 
 abstract class CafeteriaRepository : Repository() {
 
-    abstract fun getCafeteria(): Result<List<Cafeteria>>
+    abstract fun getCafeteria(ordered: Boolean=true): Result<List<Cafeteria>>
     abstract fun getCorners(cafeteriaId: Int=0): Result<List<Corner>>
     abstract fun getMenus(cornerId: Int=0, date: Date?=null): Result<List<Menu>>
 
-    abstract fun getCafeteriaOrder(): Result<Map<Int, Int>> /* 'cafeteria id' to 'order' */
     abstract fun setCafeteriaOrder(cafeteriaIdToOrder: Map<Int, Int>): Result<Unit>
 }

@@ -9,8 +9,12 @@
 
 package com.inu.cafeteria.entities
 
-data class User(
+import io.realm.RealmObject
+import io.realm.annotations.PrimaryKey
+
+open class User(
+    @PrimaryKey
     val id: Long = 0,
     val token: String = "",
     val barcode: String = ""
-)
+) : RealmObject()
