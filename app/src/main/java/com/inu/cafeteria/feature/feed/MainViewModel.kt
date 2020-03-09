@@ -14,7 +14,7 @@ import com.inu.cafeteria.common.base.BaseActivity
 import com.inu.cafeteria.common.base.BaseViewModel
 import com.inu.cafeteria.model.scheme.LogoutParams
 import com.inu.cafeteria.repository.LoginRepository
-import com.inu.cafeteria.repository.StudentInfoRepository
+import com.inu.cafeteria.repository.UserRepository
 import com.inu.cafeteria.usecase.ActivateBarcode
 import com.inu.cafeteria.usecase.Logout
 import org.koin.core.inject
@@ -24,7 +24,7 @@ class MainViewModel : BaseViewModel() {
     private val logout: Logout by inject()
 
     private val loginRepo: LoginRepository by inject()
-    private val studentInfoRepo: StudentInfoRepository by inject()
+    private val userRepo: UserRepository by inject()
 
     private val navigator: Navigator by inject()
 
@@ -32,7 +32,7 @@ class MainViewModel : BaseViewModel() {
         failables += this
         failables += activateBarcode
         failables += loginRepo
-        failables += studentInfoRepo
+        failables += userRepo
     }
 
     fun tryLogout(
@@ -40,7 +40,7 @@ class MainViewModel : BaseViewModel() {
         onFail: (e: Exception) -> Unit,
         onNoToken: () -> Unit
     ) {
-        val token = studentInfoRepo.getLoginToken()
+        val token = userRepo.getLoginToken()
         if (token == null) {
             onNoToken()
             return
@@ -54,11 +54,11 @@ class MainViewModel : BaseViewModel() {
             onSuccess()
         }
 
-        studentInfoRepo.invalidate()
+        userRepo.invalidate()
     }
 
     fun removeUserData() {
-        studentInfoRepo.invalidate()
+        userRepo.invalidate()
     }
 
     fun showLogin(activity: BaseActivity) {

@@ -16,14 +16,14 @@ import com.inu.cafeteria.common.extension.defaultDataErrorHandle
 import com.inu.cafeteria.model.FoodMenu
 import com.inu.cafeteria.model.scheme.Cafeteria
 import com.inu.cafeteria.repository.CafeteriaRepository
-import com.inu.cafeteria.usecase.GetCafeterias
-import com.inu.cafeteria.usecase.GetFoodMenu
+import com.inu.cafeteria.usecase.GetCafeteria
+import com.inu.cafeteria.usecase.GetMenus
 import org.koin.core.inject
 
 class CafeteriaViewModel : BaseViewModel() {
 
-    private val getCafeterias: GetCafeterias by inject()
-    private val getFoodMenu: GetFoodMenu by inject()
+    private val getCafeteria: GetCafeteria by inject()
+    private val getMenus: GetMenus by inject()
 
     private val cafeteriaRepo: CafeteriaRepository by inject()
 
@@ -42,11 +42,11 @@ class CafeteriaViewModel : BaseViewModel() {
             cafeteriaRepo.invalidateCache()
         }
 
-        getCafeterias(Unit) { result ->
+        getCafeteria(Unit) { result ->
             result.onSuccess { _cafeteria.value = it }.onError { defaultDataErrorHandle(it) }
         }
 
-        getFoodMenu(Unit) { result ->
+        getMenus(Unit) { result ->
             result.onSuccess { _food.value = it }.onError { defaultDataErrorHandle(it) }
         }
     }

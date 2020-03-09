@@ -9,15 +9,17 @@
 
 package com.inu.cafeteria.usecase
 
-import com.inu.cafeteria.entities.Corner
-import com.inu.cafeteria.functional.Result
+import com.inu.cafeteria.entities.Menu
 import com.inu.cafeteria.interactor.UseCase
 import com.inu.cafeteria.repository.CafeteriaRepository
+import java.util.*
 
-class GetCorners(
-    private val cafeteriaRepository: CafeteriaRepository
-) : UseCase<Int, List<Corner>>() {
+class GetMenus(
+    private val cafeteriaRepo: CafeteriaRepository
+) : UseCase<GetMenus.Param, List<Menu>>() {
 
-    override suspend fun run(params: Int): Result<List<Corner>> =
-        cafeteriaRepository.getCorners(params)
+    data class Param(val cornerId: Int, val date: Date?=null)
+
+    override suspend fun run(params: Param) =
+        cafeteriaRepo.getMenus(params.cornerId, params.date)
 }

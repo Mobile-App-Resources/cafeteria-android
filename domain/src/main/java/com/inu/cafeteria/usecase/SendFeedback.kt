@@ -9,12 +9,14 @@
 
 package com.inu.cafeteria.usecase
 
+import com.inu.cafeteria.functional.Result
 import com.inu.cafeteria.interactor.UseCase
-import com.inu.cafeteria.repository.UserRepository
+import com.inu.cafeteria.repository.InteractionRepository
 
-class ActivateBarcode(
-    private val userRepo: UserRepository
-) : UseCase<Unit, Unit>() {
+class SendFeedback(
+    private val interactionRepo: InteractionRepository
+) : UseCase<String, Unit>() {
 
-    override suspend fun run(params: Unit) = userRepo.activateBarcode()
+    override suspend fun run(params: String): Result<Unit> =
+        interactionRepo.sendFeedback(params)
 }

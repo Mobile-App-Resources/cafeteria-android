@@ -21,7 +21,7 @@ import com.inu.cafeteria.exception.ResponseFailException
 import com.inu.cafeteria.model.scheme.LoginParams
 import com.inu.cafeteria.model.scheme.LoginResult
 import com.inu.cafeteria.repository.LoginRepository
-import com.inu.cafeteria.repository.StudentInfoRepository
+import com.inu.cafeteria.repository.UserRepository
 import com.inu.cafeteria.usecase.Login
 import org.koin.core.inject
 import timber.log.Timber
@@ -30,7 +30,7 @@ class LoginViewModel : BaseViewModel() {
 
     private val login: Login by inject()
 
-    private val studentInfoRepo: StudentInfoRepository by inject()
+    private val studentInfoRepo: UserRepository by inject()
     private val loginRepo: LoginRepository by inject()
 
     private val navigator: Navigator by inject()

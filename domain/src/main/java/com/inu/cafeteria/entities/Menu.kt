@@ -12,11 +12,10 @@ package com.inu.cafeteria.entities
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-open class Menu(
-    @PrimaryKey
-    val _id: Int,
-
+class Menu(
     val foods: List<String>,
     val price: Int,
-    val calorie: Int
-) : RealmObject()
+    val calorie: Int,
+
+    val cornerId: Int
+)

@@ -17,13 +17,13 @@ import com.inu.cafeteria.extension.onNull
 import com.inu.cafeteria.model.FoodMenu
 import com.inu.cafeteria.model.scheme.Cafeteria
 import com.inu.cafeteria.repository.CafeteriaRepository
-import com.inu.cafeteria.usecase.GetFoodMenu
+import com.inu.cafeteria.usecase.GetMenus
 import org.koin.core.inject
 import timber.log.Timber
 
 class CafeteriaDetailsViewModel : BaseViewModel() {
 
-    private val getFoodMenu: GetFoodMenu by inject()
+    private val getMenus: GetMenus by inject()
     private val cafeteriaRepo: CafeteriaRepository by inject()
 
     var cafeteria: Cafeteria? = null
@@ -71,7 +71,7 @@ class CafeteriaDetailsViewModel : BaseViewModel() {
             cafeteriaRepo.invalidateCache()
         }
 
-        getFoodMenu(Unit) { result ->
+        getMenus(Unit) { result ->
             result.onSuccess { list ->
                 cafeteria?.let {
                     val found = list.find { it.cafeteriaNumber == cafeteria?.key }

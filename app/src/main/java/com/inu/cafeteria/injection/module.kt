@@ -70,10 +70,10 @@ val myModules = module {
 
     /** Student Info Repository */
     single {
-        StudentInfoRepositoryImpl(
+        UserRepositoryImpl(
             context = get(),
             networkService = get()
-        ) as StudentInfoRepository
+        ) as UserRepository
     }
 
     /** Version Repository */
@@ -100,25 +100,25 @@ val myModules = module {
     /** Activate Barcode */
     single {
         ActivateBarcode(
-            studentInfoRepo = get()
+            userRepo = get()
         )
     }
 
     /** Create Barcode */
     single {
-        CreateBarcode()
+        CreateBarcodeImage()
     }
 
     /** Get Cafeteria */
     single {
-        GetCafeterias(
+        GetCafeteria(
             cafeteriaRepo = get()
         )
     }
 
     /** Get Food Menu */
     single {
-        GetFoodMenu(
+        GetMenus(
             cafeteriaRepo = get()
         )
     }

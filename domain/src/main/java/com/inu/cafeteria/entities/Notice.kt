@@ -9,9 +9,8 @@
 
 package com.inu.cafeteria.entities
 
-class Corner(
+data class Notice(
     val id: Int,
-    val name: String,
-
-    val cafeteriaId: Int
+    val title: String,
+    val body: String
 )

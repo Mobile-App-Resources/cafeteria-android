@@ -21,10 +21,10 @@ import com.inu.cafeteria.service.CafeteriaNetworkService
 import com.scottyab.aescrypt.AESCrypt
 import timber.log.Timber
 
-class StudentInfoRepositoryImpl(
+class UserRepositoryImpl(
     context: Context,
     private val networkService: CafeteriaNetworkService
-) : StudentInfoRepository() {
+) : UserRepository() {
 
     private val pref = context.getSharedPreferences(
         PREFERENCE_STUDENT_INFO,

@@ -9,29 +9,17 @@
 
 package com.inu.cafeteria.usecase
 
+import com.inu.cafeteria.entities.User
 import com.inu.cafeteria.functional.Result
 import com.inu.cafeteria.interactor.UseCase
-import com.inu.cafeteria.model.scheme.LoginParams
-import com.inu.cafeteria.model.scheme.LoginResult
-import com.inu.cafeteria.repository.LoginRepository
-import com.inu.cafeteria.repository.Repository
+import com.inu.cafeteria.repository.UserRepository
 
 class Login(
-    private val loginRepo: LoginRepository
-) : UseCase<LoginParams, LoginResult>() {
+    private val userRepo: UserRepository
+) : UseCase<Login.Param, User>() {
 
-    override fun run(params: LoginParams) = Result.of {
-        var result: LoginResult? = null
-        var failure: Exception? = null
+    data class Param(val id: Long, val token: String?=null, val password: String?=null)
 
-        loginRepo.login(params, Repository.DataCallback(
-            async = false,
-            onSuccess = { result = it },
-            onFail = { failure = it }
-        ))
-
-        failure?.let { throw it }
-
-        return@of result!!
-    }
+    override suspend fun run(params: Param): Result<User> =
+        userRepo.login(params.id, params.token, params.password)
 }

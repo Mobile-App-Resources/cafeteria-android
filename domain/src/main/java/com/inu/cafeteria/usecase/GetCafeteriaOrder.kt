@@ -11,18 +11,12 @@ package com.inu.cafeteria.usecase
 
 import com.inu.cafeteria.functional.Result
 import com.inu.cafeteria.interactor.UseCase
+import com.inu.cafeteria.repository.CafeteriaRepository
 
-/**
- * This use case refreshes all cafeteria, corners and menus.
- */
-class Refresh : UseCase<Unit, Unit>() {
+class GetCafeteriaOrder(
+    private val cafeteriaRepo: CafeteriaRepository
+) : UseCase<Unit, Map<Int, Int>>() {
 
-    override fun run(params: Unit): Result<Unit> = Result.of {
-
-        
-
-
-
-
-    }
+    override suspend fun run(params: Unit): Result<Map<Int, Int>> =
+        cafeteriaRepo.getCafeteriaOrder()
 }

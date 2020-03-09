@@ -12,8 +12,6 @@ package com.inu.cafeteria.interactor
 import com.inu.cafeteria.base.FailableComponent
 import com.inu.cafeteria.functional.Result
 import kotlinx.coroutines.*
-import okhttp3.Dispatcher
-import kotlin.coroutines.CoroutineContext
 
 /**
  * Abstract class for Use Case (Interactor in terms of Clean Architecture).

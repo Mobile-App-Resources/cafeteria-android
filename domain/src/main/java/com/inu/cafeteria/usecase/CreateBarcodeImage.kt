@@ -9,12 +9,14 @@
 
 package com.inu.cafeteria.usecase
 
+import android.graphics.Bitmap
+import com.inu.cafeteria.functional.Result
 import com.inu.cafeteria.interactor.UseCase
-import com.inu.cafeteria.repository.UserRepository
+import com.inu.cafeteria.util.Barcode
 
-class ActivateBarcode(
-    private val userRepo: UserRepository
-) : UseCase<Unit, Unit>() {
+class CreateBarcodeImage : UseCase<String, Bitmap>() {
 
-    override suspend fun run(params: Unit) = userRepo.activateBarcode()
+    override suspend fun run(params: String) = Result.of {
+        Barcode.from(params)!!
+    }
 }

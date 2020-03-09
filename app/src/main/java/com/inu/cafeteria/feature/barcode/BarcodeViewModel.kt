@@ -21,18 +21,18 @@ import com.inu.cafeteria.exception.ServerNoResponseException
 import com.inu.cafeteria.model.BarcodeState
 import com.inu.cafeteria.model.scheme.ActivateBarcodeParams
 import com.inu.cafeteria.repository.LoginRepository
-import com.inu.cafeteria.repository.StudentInfoRepository
+import com.inu.cafeteria.repository.UserRepository
 import com.inu.cafeteria.usecase.ActivateBarcode
-import com.inu.cafeteria.usecase.CreateBarcode
+import com.inu.cafeteria.usecase.CreateBarcodeImage
 import org.koin.core.inject
 import timber.log.Timber
 
 class BarcodeViewModel : BaseViewModel() {
 
     private val activateBarcode: ActivateBarcode by inject()
-    private val createBarcode: CreateBarcode by inject()
+    private val createBarcodeImage: CreateBarcodeImage by inject()
 
-    private val studentInfoRepo: StudentInfoRepository by inject()
+    private val userRepo: UserRepository by inject()
     private val loginRepo: LoginRepository by inject()
 
     private val _barcodeState = MutableLiveData<BarcodeState>()
@@ -56,7 +56,7 @@ class BarcodeViewModel : BaseViewModel() {
      * And check If the current barcode data is valid.
      * If not, it calls [onNoBarcode].
      * After that send a request to the server for activation.
-     * If the request is succeeded, it runs the usecase [CreateBarcode]
+     * If the request is succeeded, it runs the usecase [CreateBarcodeImage]
      * to create a bitmap and then post the result to the [onSuccess].
      * If anything went wrong, it calls [onFail].
      * The failure could be due to either server communication or the bitmap creation.
@@ -70,9 +70,9 @@ class BarcodeViewModel : BaseViewModel() {
         onFail: (e: Exception) -> Unit,
         onNoBarcode: () -> Unit  // No barcode
     ) {
-        studentId.value = studentInfoRepo.getStudentId()
+        studentId.value = userRepo.getStudentId()
 
-        val barcode = studentInfoRepo.getBarcode()
+        val barcode = userRepo.getBarcode()
         if (barcode == null) {
             _barcodeState.value = BarcodeState()
             onNoBarcode()
@@ -102,7 +102,7 @@ class BarcodeViewModel : BaseViewModel() {
                     // Now we have to create a bitmap from the barcode.
                     // It takes time so has to be done in background.
                     // If succeeded, call onSuccess to set the image to the view.
-                    createBarcode(barcode) {
+                    createBarcodeImage(barcode) {
                         it.onSuccess { bitmap ->
                             _barcodeState.value = initialState.copy(isLoading = false)
                             onSuccess(bitmap)
@@ -137,7 +137,7 @@ class BarcodeViewModel : BaseViewModel() {
         onFail: (e: Exception) -> Unit,
         onNoBarcode: () -> Unit  // No barcode
     ) {
-        val barcode = studentInfoRepo.getBarcode()
+        val barcode = userRepo.getBarcode()
         if (barcode == null) {
             _barcodeState.value = BarcodeState()
             onNoBarcode()

@@ -9,15 +9,15 @@
 
 package com.inu.cafeteria.usecase
 
-import com.inu.cafeteria.entities.Corner
+import com.inu.cafeteria.entities.FeedbackReply
 import com.inu.cafeteria.functional.Result
 import com.inu.cafeteria.interactor.UseCase
-import com.inu.cafeteria.repository.CafeteriaRepository
+import com.inu.cafeteria.repository.InteractionRepository
 
-class GetCorners(
-    private val cafeteriaRepository: CafeteriaRepository
-) : UseCase<Int, List<Corner>>() {
+class GetFeedbackReplies(
+    private val interactionRepo: InteractionRepository
+) : UseCase<Unit, List<FeedbackReply>>() {
 
-    override suspend fun run(params: Int): Result<List<Corner>> =
-        cafeteriaRepository.getCorners(params)
+    override suspend fun run(params: Unit): Result<List<FeedbackReply>> =
+        interactionRepo.getFeedbackReplies()
 }

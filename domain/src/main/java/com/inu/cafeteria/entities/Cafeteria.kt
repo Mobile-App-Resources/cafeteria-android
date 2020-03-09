@@ -9,12 +9,7 @@
 
 package com.inu.cafeteria.entities
 
-import io.realm.RealmList
-import io.realm.RealmObject
-import io.realm.annotations.PrimaryKey
-
-open class Cafeteria  (
-    @PrimaryKey
+class Cafeteria  (
     val id: Int = 0,
     val name: String = "",
     val imagePath: String = "",
@@ -23,10 +18,6 @@ open class Cafeteria  (
     val supportDiscount: Boolean = false,
     val supportNotification: Boolean = false,
 
-    /**
-     * Ordering is an important part of this app.
-     */
-    val order: Int = 0,
 
-    val corners: RealmList<Corner> = RealmList()
-): RealmObject()
+    val order: Int = 0
+)
