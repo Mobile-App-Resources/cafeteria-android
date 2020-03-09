@@ -9,32 +9,29 @@
 
 package com.inu.cafeteria.interactor
 
-import android.os.Handler
-import android.os.Looper
 import com.inu.cafeteria.base.FailableComponent
 import com.inu.cafeteria.functional.Result
-import timber.log.Timber
+import kotlinx.coroutines.*
+import okhttp3.Dispatcher
+import kotlin.coroutines.CoroutineContext
 
 /**
  * Abstract class for Use Case (Interactor in terms of Clean Architecture).
  * Any use case in this application should implement this.
  */
 abstract class UseCase<in Params, out Type> : FailableComponent() {
-    abstract fun run(params: Params): Result<Type>
+    abstract suspend fun run(params: Params): Result<Type>
 
-    /**
-     * Use thread instead of coroutine because it ruins Realm.
-     */
     operator fun invoke(params: Params, onResult: (Result<Type>) -> Unit = {}) {
-        Thread {
-            try {
-                Timber.v("UseCase running on ${Thread.currentThread().name}")
-                val result = run(params)
-                Handler(Looper.getMainLooper()).post { onResult(result) }
-            } catch (e: Exception) {
-                Timber.w("Exception inside another thread.")
-                Timber.w(e)
+        CoroutineScope(Dispatchers.Main).launch {
+            // Do on background
+            val result = withContext(Dispatchers.IO) {
+                run(params)
             }
-        }.start()
+
+            // Return to main thread.
+            onResult(result)
+        }
+
     }
 }
