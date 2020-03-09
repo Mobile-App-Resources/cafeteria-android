@@ -17,6 +17,6 @@ import com.inu.cafeteria.util.Barcode
 class CreateBarcodeImage : UseCase<String, Bitmap>() {
 
     override suspend fun run(params: String) = Result.of {
-        Barcode.from(params)!!
+        Barcode.from(params)
     }
 }
