@@ -10,7 +10,7 @@
 package com.inu.cafeteria.usecases
 
 import com.inu.cafeteria.entities.Cafeteria
-import com.inu.cafeteria.interactor.UseCase
+import com.inu.cafeteria.core.interactor.UseCase
 import com.inu.cafeteria.repositories.CafeteriaRepository
 
 class GetCafeteria(

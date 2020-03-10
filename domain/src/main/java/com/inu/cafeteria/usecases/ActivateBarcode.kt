@@ -9,7 +9,7 @@
 
 package com.inu.cafeteria.usecases
 
-import com.inu.cafeteria.interactor.UseCase
+import com.inu.cafeteria.core.interactor.UseCase
 import com.inu.cafeteria.repositories.UserRepository
 
 class ActivateBarcode(

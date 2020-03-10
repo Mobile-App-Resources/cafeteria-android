@@ -9,10 +9,11 @@
 
 package com.inu.cafeteria.repositories
 
+import com.inu.cafeteria.core.repository.Repository
 import com.inu.cafeteria.entities.Cafeteria
 import com.inu.cafeteria.entities.Corner
 import com.inu.cafeteria.entities.Menu
-import com.inu.cafeteria.functional.Result
+import com.inu.cafeteria.core.functional.Result
 import java.util.*
 
 abstract class CafeteriaRepository : Repository() {

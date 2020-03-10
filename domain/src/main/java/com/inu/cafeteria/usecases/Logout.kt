@@ -9,8 +9,8 @@
 
 package com.inu.cafeteria.usecases
 
-import com.inu.cafeteria.functional.Result
-import com.inu.cafeteria.interactor.UseCase
+import com.inu.cafeteria.core.functional.Result
+import com.inu.cafeteria.core.interactor.UseCase
 import com.inu.cafeteria.repositories.UserRepository
 import com.inu.cafeteria.services.UserService
 

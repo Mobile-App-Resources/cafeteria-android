@@ -9,9 +9,10 @@
 
 package com.inu.cafeteria.repositories
 
+import com.inu.cafeteria.core.repository.Repository
 import com.inu.cafeteria.entities.Notice
 import com.inu.cafeteria.entities.FeedbackReply
-import com.inu.cafeteria.functional.Result
+import com.inu.cafeteria.core.functional.Result
 
 abstract class InteractionRepository : Repository() {
 

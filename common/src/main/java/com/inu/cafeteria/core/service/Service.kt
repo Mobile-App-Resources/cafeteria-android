@@ -7,14 +7,14 @@
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
 
-package com.inu.cafeteria.parser
+package com.inu.cafeteria.core.service
 
 import com.inu.cafeteria.base.FailableComponent
+import com.inu.cafeteria.base.Startable
+import timber.log.Timber
 
-/**
- * Abstract class for object parser.
- * It could be a json parser, or anything.
- */
-abstract class Parser<P, T> : FailableComponent() {
-    abstract fun parse(raw: P, params: Any? = null): T?
+abstract class Service : FailableComponent(), Startable {
+    override fun start() {
+        Timber.v("${this::class.java.name} started.")
+    }
 }

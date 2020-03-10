@@ -9,7 +9,7 @@
 
 package com.inu.cafeteria
 
-import com.inu.cafeteria.functional.Result
+import com.inu.cafeteria.core.functional.Result
 import org.junit.Test
 import com.google.common.truth.Truth.assertThat
 import java.lang.ArithmeticException

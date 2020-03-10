@@ -7,7 +7,7 @@
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
 
-package com.inu.cafeteria.repositories
+package com.inu.cafeteria.core.repository
 
 import com.inu.cafeteria.base.FailableComponent
 import com.inu.cafeteria.base.Startable
@@ -24,7 +24,7 @@ abstract class Repository : FailableComponent(), Startable {
 
     /**
      * Callback passed to repository when requesting some data.
-     * Usefull when fetching data from network or DB.
+     * Useful when fetching data from network or DB.
      *
      * The [onSuccess] and [onFail] cannot be called at once.
      * One of them MUST be launched.

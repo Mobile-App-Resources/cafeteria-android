@@ -9,6 +9,8 @@
 
 package com.inu.cafeteria.repositories
 
+import com.inu.cafeteria.core.repository.Repository
+
 /**
  * You have to create your own implementation of this repository.
  * It is forbidden to upload the server url to VCS.

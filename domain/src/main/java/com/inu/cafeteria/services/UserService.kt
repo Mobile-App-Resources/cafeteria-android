@@ -9,8 +9,9 @@
 
 package com.inu.cafeteria.services
 
+import com.inu.cafeteria.core.service.Service
 import com.inu.cafeteria.entities.User
-import com.inu.cafeteria.functional.Result
+import com.inu.cafeteria.core.functional.Result
 
 abstract class UserService : Service() {
 

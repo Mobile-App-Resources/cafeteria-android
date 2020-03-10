@@ -9,8 +9,9 @@
 
 package com.inu.cafeteria.repositories
 
+import com.inu.cafeteria.core.repository.Repository
 import com.inu.cafeteria.entities.User
-import com.inu.cafeteria.functional.Result
+import com.inu.cafeteria.core.functional.Result
 
 abstract class UserRepository : Repository() {
 
