@@ -14,7 +14,7 @@ import io.realm.annotations.PrimaryKey
 
 open class User(
     @PrimaryKey
-    val id: Long = 0,
-    val token: String = "",
-    val barcode: String = ""
+    var id: Long = 0,
+    var token: String = "",
+    var barcode: String = ""
 ) : RealmObject()

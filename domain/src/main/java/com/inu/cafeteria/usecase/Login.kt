@@ -9,17 +9,26 @@
 
 package com.inu.cafeteria.usecase
 
-import com.inu.cafeteria.entities.User
 import com.inu.cafeteria.functional.Result
 import com.inu.cafeteria.interactor.UseCase
 import com.inu.cafeteria.repository.UserRepository
+import com.inu.cafeteria.service.AuthenticationService
 
 class Login(
+    private val authService: AuthenticationService,
     private val userRepo: UserRepository
-) : UseCase<Login.Param, User>() {
+) : UseCase<Login.Param, Unit>() {
 
     data class Param(val id: Long, val token: String?=null, val password: String?=null)
 
-    override suspend fun run(params: Param): Result<User> =
-        userRepo.login(params.id, params.token, params.password)
+    override suspend fun run(params: Param) = Result.of {
+        authService.login(params.id, params.token, params.password)
+            .then { user ->
+                userRepo.setUser(user)
+            }.onError {
+                throw it
+            }
+
+        Unit
+    }
 }

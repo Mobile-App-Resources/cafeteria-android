@@ -41,6 +41,12 @@ sealed class Result<out T> {
             is Error -> onError(exception)
         }
 
+    fun <R> then(body: (T) -> Result<R>): Result<R> =
+        when (this) {
+            is Success<T> -> try { body(data) } catch (e: Exception) { Error(e) }
+            is Error -> this
+        }
+
     override fun toString(): String {
         return when (this) {
             is Success<*> -> "Success[data=$data]"

@@ -9,12 +9,22 @@
 
 package com.inu.cafeteria.usecase
 
+import com.inu.cafeteria.functional.Result
 import com.inu.cafeteria.interactor.UseCase
 import com.inu.cafeteria.repository.UserRepository
+import com.inu.cafeteria.service.AuthenticationService
 
 class Logout(
+    private val authService: AuthenticationService,
     private val userRepo: UserRepository
 ) : UseCase<Unit, Unit>() {
 
-    override suspend fun run(params: Unit) = userRepo.logout()
+    override suspend fun run(params: Unit) = Result.of {
+        userRepo.purgeUser()
+            .then {
+                authService.logout().onError { throw it }
+            }.onError { throw it }
+
+        Unit
+    }
 }

@@ -7,17 +7,13 @@
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
 
-package com.inu.cafeteria.repository
+package com.inu.cafeteria.service
 
 import com.inu.cafeteria.entities.User
 import com.inu.cafeteria.functional.Result
-import com.inu.cafeteria.model.scheme.*
 
-abstract class UserRepository : Repository() {
+abstract class AuthenticationService : Service() {
 
-    abstract fun getUser(): Result<User>
-    abstract fun setUser(user: User): Result<Unit>
-    abstract fun purgeUser(): Result<Unit>
-
-    abstract fun activateBarcode(): Result<Unit>
+    abstract fun login(id: Long, token: String?=null, password: String?=null): Result<User>
+    abstract fun logout(): Result<Unit>
 }

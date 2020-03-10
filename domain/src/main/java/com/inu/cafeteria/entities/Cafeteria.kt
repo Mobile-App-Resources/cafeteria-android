@@ -9,7 +9,7 @@
 
 package com.inu.cafeteria.entities
 
-class Cafeteria  (
+data class Cafeteria  (
     val id: Int = 0,
     val name: String = "",
     val imagePath: String = "",

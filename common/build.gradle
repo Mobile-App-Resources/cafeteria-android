@@ -44,9 +44,10 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     api "androidx.appcompat:appcompat:$appcompat_version"
     api "androidx.core:core-ktx:$core_ktx_version"
-    testImplementation 'junit:junit:4.13'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "com.google.truth:truth:$truth_version"
+    androidTestImplementation "androidx.test:core:$android_test_core_version"
 
     /**
      * Dependencies below will be used globally in every module.

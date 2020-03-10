@@ -13,7 +13,7 @@ import com.inu.cafeteria.api.models.*
 import retrofit2.Call
 import retrofit2.http.*
 
-interface CafeteriaNetworkService {
+interface CafeteriaApi {
 
     @GET("/cafeteria")
     fun getCafeteria(): Call<List<CafeteriaResponse>>
@@ -38,28 +38,21 @@ interface CafeteriaNetworkService {
 
     @FormUrlEncoded
     @POST("/logout")
-    fun logout(
-        @Header("authorization") auth: String
-    ): Call<Unit>
+    fun logout(): Call<Unit>
 
     @FormUrlEncoded
     @POST("/activeBarcode")
-    fun activateBarcode(
-        @Header("authorization") auth: String
-    ): Call<Unit>
+    fun activateBarcode(): Call<Unit>
 
     @FormUrlEncoded
     @POST("/feedback")
     fun sendFeedback(
-        @Header("authorization") auth: String,
         @Field("content") content: String
     ): Call<Unit>
 
     @FormUrlEncoded
     @GET
-    fun getFeedbackReplies(
-        @Header("authorization") auth: String
-    ): Call<List<FeedbackReplyResponse>>
+    fun getFeedbackReplies(): Call<List<FeedbackReplyResponse>>
 
     @FormUrlEncoded
     @GET

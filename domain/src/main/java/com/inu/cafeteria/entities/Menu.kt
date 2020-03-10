@@ -9,10 +9,7 @@
 
 package com.inu.cafeteria.entities
 
-import io.realm.RealmObject
-import io.realm.annotations.PrimaryKey
-
-class Menu(
+data class Menu(
     val foods: List<String>,
     val price: Int,
     val calorie: Int,
