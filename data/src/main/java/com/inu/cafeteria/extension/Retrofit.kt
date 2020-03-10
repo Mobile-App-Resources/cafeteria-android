@@ -9,9 +9,9 @@
 
 package com.inu.cafeteria.extension
 
-import com.inu.cafeteria.exceptions.NullBodyException
-import com.inu.cafeteria.exceptions.ResponseFailException
-import com.inu.cafeteria.exceptions.ServerNoResponseException
+import com.inu.cafeteria.core.exception.NullBodyException
+import com.inu.cafeteria.core.exception.ResponseFailException
+import com.inu.cafeteria.core.exception.ServerNoResponseException
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

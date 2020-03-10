@@ -10,9 +10,16 @@
 package com.inu.cafeteria.api.models
 
 import com.google.gson.annotations.SerializedName
+import com.inu.cafeteria.entities.Corner
 
 data class CornerResponse(
     val id: Int,
     val name: String,
     @SerializedName("cafeteria-id") val cafeteriaId: Int
-)
+) {
+    fun toCorner() = Corner(
+        id = this.id,
+        name = this.name,
+        cafeteriaId = this.cafeteriaId
+    )
+}

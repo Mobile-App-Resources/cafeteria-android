@@ -9,12 +9,14 @@
 
 package com.inu.cafeteria.usecases
 
+import com.inu.cafeteria.core.functional.Result
 import com.inu.cafeteria.core.interactor.UseCase
 import com.inu.cafeteria.repositories.UserRepository
+import com.inu.cafeteria.services.UserService
 
 class ActivateBarcode(
-    private val userRepo: UserRepository
+    private val userService: UserService
 ) : UseCase<Unit, Unit>() {
 
-    override suspend fun run(params: Unit) = userRepo.activateBarcode()
+    override suspend fun run(params: Unit) = userService.activateBarcode()
 }

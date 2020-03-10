@@ -18,5 +18,5 @@ abstract class UserService : Service() {
     abstract fun login(id: Long, token: String?=null, password: String?=null): Result<User>
     abstract fun logout(): Result<Unit>
 
-    abstract fun activateBarcode(user: User): Result<Unit>
+    abstract fun activateBarcode(): Result<Unit>
 }

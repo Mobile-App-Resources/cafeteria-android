@@ -12,11 +12,12 @@ package com.inu.cafeteria.usecases
 import com.inu.cafeteria.core.functional.Result
 import com.inu.cafeteria.core.interactor.UseCase
 import com.inu.cafeteria.repositories.InteractionRepository
+import com.inu.cafeteria.services.InteractionService
 
 class SendFeedback(
-    private val interactionRepo: InteractionRepository
+    private val interactionService: InteractionService
 ) : UseCase<String, Unit>() {
 
     override suspend fun run(params: String): Result<Unit> =
-        interactionRepo.sendFeedback(params)
+        interactionService.sendFeedback(params)
 }

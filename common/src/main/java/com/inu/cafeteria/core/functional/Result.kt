@@ -43,7 +43,9 @@ sealed class Result<out T> {
 
     fun <R> then(body: (T) -> Result<R>): Result<R> =
         when (this) {
-            is Success<T> -> try { body(data) } catch (e: Exception) {
+            is Success<T> -> try {
+                body(data)
+            } catch (e: Exception) {
                 Error(e)
             }
             is Error -> this

@@ -21,9 +21,8 @@ class Logout(
 
     override suspend fun run(params: Unit) = Result.of {
         userRepo.purgeUser()
-            .then {
-                authService.logout().onError { throw it }
-            }.onError { throw it }
+            .then { authService.logout() }
+            .onError { throw it }
 
         Unit
     }

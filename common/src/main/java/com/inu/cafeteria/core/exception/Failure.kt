@@ -7,6 +7,11 @@
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
 
-package com.inu.cafeteria.exceptions
+package com.inu.cafeteria.core.exception
 
-class ServerNoResponseException(message: String = "") : Exception(message)
+sealed class Failure : Exception() {
+    object NetworkConnection : Failure()
+    object ServerError : Failure()
+
+    abstract class FeatureFailure : Failure()
+}

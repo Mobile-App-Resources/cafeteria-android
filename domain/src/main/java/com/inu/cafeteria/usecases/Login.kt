@@ -23,11 +23,8 @@ class Login(
 
     override suspend fun run(params: Param) = Result.of {
         authService.login(params.id, params.token, params.password)
-            .then { user ->
-                userRepo.setUser(user)
-            }.onError {
-                throw it
-            }
+            .then { user -> userRepo.setUser(user) }
+            .onError { throw it }
 
         Unit
     }
