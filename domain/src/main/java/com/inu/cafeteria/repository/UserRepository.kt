@@ -17,7 +17,6 @@ abstract class UserRepository : Repository() {
 
     abstract fun getUser(): Result<User>
     abstract fun setUser(user: User): Result<Unit>
-    abstract fun purgeUser(): Result<Unit>
 
-    abstract fun activateBarcode(): Result<Unit>
+    abstract fun purgeUser(): Result<Unit>
 }

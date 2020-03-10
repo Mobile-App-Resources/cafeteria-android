@@ -12,8 +12,10 @@ package com.inu.cafeteria.service
 import com.inu.cafeteria.entities.User
 import com.inu.cafeteria.functional.Result
 
-abstract class AuthenticationService : Service() {
+abstract class UserService : Service() {
 
     abstract fun login(id: Long, token: String?=null, password: String?=null): Result<User>
     abstract fun logout(): Result<Unit>
+
+    abstract fun activateBarcode(user: User): Result<Unit>
 }
