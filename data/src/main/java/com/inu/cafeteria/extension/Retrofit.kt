@@ -9,9 +9,7 @@
 
 package com.inu.cafeteria.extension
 
-import com.inu.cafeteria.core.exception.NullBodyException
-import com.inu.cafeteria.core.exception.ResponseFailException
-import com.inu.cafeteria.core.exception.ServerNoResponseException
+import com.inu.cafeteria.core.exception.Failure
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -61,11 +59,11 @@ fun <T> Call<T>.onResult(
                             onSuccess(it)
                             Timber.i("Response success!")
                         }.onNull {
-                            onFail(NullBodyException())
+                            onFail(Failure.ServerError)
                             Timber.w("Response is success but body is null.")
                         }
                     } else {
-                        onFail(ResponseFailException())
+                        onFail(Failure.ServerError)
                         Timber.w("Response is fail.")
                     }
 
@@ -77,7 +75,7 @@ fun <T> Call<T>.onResult(
 
             override fun onFailure(call: Call<T>, t: Throwable) {
                 try {
-                    onFail(ServerNoResponseException())
+                    onFail(Failure.NetworkConnection)
                     Timber.w("Server no responding.")
                 } catch (e: Exception) {
                     onFail(e)
@@ -97,17 +95,17 @@ fun <T> Call<T>.onResult(
                     onSuccess(it)
                     Timber.i("Response success!")
                 }.onNull {
-                    onFail(NullBodyException())
+                    onFail(Failure.ServerError)
                     Timber.w("Response is success but body is null.")
                 }
             } else {
-                onFail(ResponseFailException())
+                onFail(Failure.ServerError)
                 Timber.w("Response is fail.")
             }
 
         } catch (e: IOException) {
             Timber.e(e)
-            onFail(ServerNoResponseException())
+            onFail(Failure.NetworkConnection)
             Timber.w("Server no responding.")
         } catch (e: Exception) {
             onFail(e)

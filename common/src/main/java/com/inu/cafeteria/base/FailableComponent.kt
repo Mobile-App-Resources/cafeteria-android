@@ -10,6 +10,7 @@
 package com.inu.cafeteria.base
 
 import android.content.Context
+import android.content.ContextWrapper
 import androidx.annotation.StringRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -21,7 +22,7 @@ import timber.log.Timber
  * Abstract class that defines failure handling.
  */
 abstract class FailableComponent : Failable, KoinComponent {
-    private val mContext: Context by inject()
+    private val mContext: Context = ContextWrapper(null)
 
     private val failure = MutableLiveData<Failable.Failure>()
 

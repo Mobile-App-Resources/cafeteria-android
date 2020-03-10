@@ -14,6 +14,7 @@ import com.inu.cafeteria.data.BuildConfig
 
 class PrivateRepositoryImpl : PrivateRepository() {
     override fun getServerBaseUrl(): String {
-        return String(Base64.decode(BuildConfig.BASE_URL, 0))
+        return "http://ec2-52-79-48-231.ap-northeast-2.compute.amazonaws.com:3829"
+        // return String(Base64.decode(BuildConfig.BASE_URL, 0))
     }
 }
